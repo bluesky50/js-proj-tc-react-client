@@ -5,7 +5,8 @@ const compLayout = {
     padding: "20px",
     display: "flex",
     flexFlow: "column",
-    flex: 1
+    flex: 1,
+    boxShadow: "inset 0 0 3px rgb(30, 30, 30)",
 }
 
 const headerStyle = {

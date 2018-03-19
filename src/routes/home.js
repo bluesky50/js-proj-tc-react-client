@@ -14,6 +14,7 @@ class HomePage extends Component {
     render() {
       return (
         <div style={pageLayout}>
+            {/* <div style={{ top: "0", left: "0", position: "fixed", height: "100vh", width: "100%", filter: "blur(5px)", zIndex: "100", background: "rgba(50, 50,50,0.5)"}}>OVERLAY</div> */}
             <div style={loginLayout}>
                 <SignInForm history={this.props.history}/>
                 {/* <form style={loginForm} onSubmit={this.handleSubmit.bind(this)}>
@@ -69,30 +70,30 @@ const loginLayout = {
     width: "320px",  
 };
 
-const loginForm = {
-    display:"flex",
-    flexFlow: "column"
-};
+// const loginForm = {
+//     display:"flex",
+//     flexFlow: "column"
+// };
 
-const formField = {
-    display: "flex",
-}
+// const formField = {
+//     display: "flex",
+// }
 
-const loginInput = {
-    background: "#888888",
-    width: "100%"
-};
+// const loginInput = {
+//     background: "#888888",
+//     width: "100%"
+// };
 
-const loginLabel = {
-    color: "rgb(204,204,200)"
-};
+// const loginLabel = {
+//     color: "rgb(204,204,200)"
+// };
 
-const submitButton = {
-    background: "rgb(38,43,51)"
-};
+// const submitButton = {
+//     background: "rgb(38,43,51)"
+// };
 
-const text = {
-    color: "rgb(204,204,200)"
-};
+// const text = {
+//     color: "rgb(204,204,200)"
+// };
 
 export default HomePage;

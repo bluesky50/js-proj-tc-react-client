@@ -6,6 +6,9 @@ import { login } from '../../reduxActions/authActions.js';
 
 import TextFieldGroup from '../textFieldGroup/textFieldGroup.js';
 
+const rms = ["blockchain", "cs3", "home", "lambda"];
+const blockedNames = ['server', 'admin', 'mod', 'moderator'];
+
 class SignInForm extends React.Component {
 
     constructor(props) {
@@ -23,9 +26,16 @@ class SignInForm extends React.Component {
 
     isValidInput() {
         const { username, accessCode } = this.state;
-        if (username && accessCode) {
+
+        if (username.trim() && accessCode.trim() && rms.includes(accessCode)) {
+            for (let bn of blockedNames) {
+                if (username.toLowerCase().includes(bn)) {
+                    return false;
+                }
+            }
             return true;
         }
+
         return false;
     }
 
@@ -45,7 +55,7 @@ class SignInForm extends React.Component {
         // Then push user to /dashboard with new token
         if (this.isValidInput()) {
             this.setState({isLoading: true});
-            this.props.login(this.state.username, this.state.accessCode);
+            this.props.login(this.state.username.trim(), this.state.accessCode.trim().toLowerCase());
             // this.props.login({ username: this.state.username, accessCode: this.state.accessCode })
             //     .then(
             //         (res) => this.context.router.push('/'),

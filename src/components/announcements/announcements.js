@@ -1,7 +1,29 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
+
+class Announcements extends Component {
+
+    mapAnnouncements() {
+        return this.props.announcements.map((a, index) => {
+            return <p style={textStyle} key={index}>{a}</p>;
+        });
+    }
+
+    render () {
+        return (
+            <div style={compLayout}>
+                <h4 style={headerStyle}>Announcements</h4>
+                {this.mapAnnouncements()}
+            </div>
+        );
+    }
+}
+
 const compLayout = {
     borderTop: "1px solid rgb(47,52,63)",
+    boxShadow: "inset 0 0 3px rgb(30, 30, 30)",
     padding: "20px",
     display: "flex",
     flexFlow: "column",
@@ -12,18 +34,20 @@ const compLayout = {
 const headerStyle = {
     // color: "rgb(67,72,83)",
     color: "rgb(97,102,113)",
-    margin: "0 0"
+    margin: "0 0 6px 0"
 }
 
-
-class Announcements extends Component {
-    render () {
-        return (
-            <div style={compLayout}>
-                <h4 style={headerStyle}>Announcements</h4>
-            </div>
-        );
-    }
+const textStyle = {
+    // color: "rgb(127,132,143)",
+    color: "darkgray",
+    fontSize: "14px",
+    margin: "0 0 4px 0"
 }
 
-export default Announcements;
+const mapStateToProps = (state) => {
+    return {
+        announcements: state.announcements
+    };
+}
+
+export default connect(mapStateToProps, null)(Announcements);

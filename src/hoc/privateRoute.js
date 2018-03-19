@@ -33,9 +33,6 @@ import { connect } from 'react-redux';
 // }
 
 class PrivateRoute extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     isAuthenticated() {
         const { userInfo } = this.props;

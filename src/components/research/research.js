@@ -1,5 +1,31 @@
 import React from 'react';
 
+class Research extends React.Component {
+    render() {
+        return (
+            <div style={macroLayout}>
+                <div style={leftLayout}>
+                    <h4 style={headerStyle}>Research</h4>
+                </div>
+                <div style={rightLayout}>
+                    <h4 style={headerStyle}>Resources</h4>
+                    {/* <a style={linkStyle} target="_blank" href="https://blockchain.info/markets">blockchain.info/markets</a>
+                    <a style={linkStyle} target="_blank" href="https://www.blockchaincurated.com/">blockchaincurrated.com</a>
+                    
+                    <a style={linkStyle} target="_blank" href="https://cryptobriefing.com/">cryptobriefing.com</a>
+                    <a style={linkStyle} target="_blank" href="https://bravenewcoin.com/markets">bravenewcoin.com/markets</a>
+                    <a style={linkStyle} target="_blank" href="https://cointelegraph.com/">cointelegraph.com</a>
+                    <a style={linkStyle} target="_blank" href="https://dashboard.cryptoparse.io/#/">cryptoparse.io</a>
+                    <a style={linkStyle} target="_blank" href="https://cointrendz.com/">cointrendz.com</a>
+                    <a style={linkStyle} target="_blank" href="https://coinmarketcap.com/">coinmarketcap.com</a>
+                    
+                    <a style={linkStyle} target="_blank" href="https://coinmeme.io/">coinmeme.io</a> */}
+                </div>
+            </div>
+        );
+    }
+}
+
 const macroLayout = {
     display: "flex",
     // flex: 1
@@ -8,6 +34,7 @@ const macroLayout = {
 
 const leftLayout = {
     borderTop: "1px solid rgb(47,52,63)",
+    boxShadow: "inset 0 0 3px rgb(30, 30, 30)",
     padding: "20px",
     display: "flex",
     flexFlow: "column",
@@ -16,6 +43,7 @@ const leftLayout = {
 
 const rightLayout = {
     borderLeft: "2px solid rgb(47,52,63)",
+    boxShadow: "inset 0 0 3px rgb(30, 30, 30)",
     padding: "20px",
     display: "flex",
     flexFlow: "column",
@@ -29,36 +57,11 @@ const headerStyle = {
     margin: "0 0"
 }
 
-const linkStyle = {
-    color: "rgb(60, 101, 142)",
-    fontSize: "12px",
-    marginBottom: "2px"
-}
+// const linkStyle = {
+//     color: "rgb(60, 101, 142)",
+//     fontSize: "12px",
+//     marginBottom: "2px"
+// }
 
-class Research extends React.Component {
-    render() {
-        return (
-            <div style={macroLayout}>
-                <div style={leftLayout}>
-                    <h4 style={headerStyle}>Research</h4>
-                </div>
-                <div style={rightLayout}>
-                    <h4 style={headerStyle}>Resources</h4>
-                    <a style={linkStyle} target="_blank" href="https://blockchain.info/markets">blockchain.info/markets</a>
-                    <a style={linkStyle} target="_blank" href="https://www.blockchaincurated.com/">blockchaincurrated.com</a>
-                    
-                    <a style={linkStyle} target="_blank" href="https://cryptobriefing.com/">cryptobriefing.com</a>
-                    <a style={linkStyle} target="_blank" href="https://bravenewcoin.com/markets">bravenewcoin.com/markets</a>
-                    <a style={linkStyle} target="_blank" href="https://cointelegraph.com/">cointelegraph.com</a>
-                    <a style={linkStyle} target="_blank" href="https://dashboard.cryptoparse.io/#/">cryptoparse.io</a>
-                    <a style={linkStyle} target="_blank" href="https://cointrendz.com/">cointrendz.com</a>
-                    <a style={linkStyle} target="_blank" href="https://coinmarketcap.com/">coinmarketcap.com</a>
-                    
-                    <a style={linkStyle} target="_blank" href="https://coinmeme.io/">coinmeme.io</a>
-                </div>
-            </div>
-        );
-    }
-}
 
 export default Research;

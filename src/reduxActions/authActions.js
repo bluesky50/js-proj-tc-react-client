@@ -18,4 +18,5 @@ export const logout = () => {
         type: LOGOUT,
         payload: {}
     }
+    return action;
 };
