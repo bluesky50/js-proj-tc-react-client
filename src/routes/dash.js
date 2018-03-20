@@ -15,7 +15,7 @@ import { setSocket } from '../reduxActions/socketActions.js';
 import { addMessage } from '../reduxActions/messagesActions.js';
 import { setUsers } from '../reduxActions/usersActions.js';
 import { setTopics } from '../reduxActions/topicsActions.js';
-import { setCalls, addCall, removeCall } from '../reduxActions/callsActions.js';
+import { setCalls, addCall, removeCall, updateCall } from '../reduxActions/callsActions.js';
 import { setSubject } from '../reduxActions/subjectActions.js';
 import { setSignaledUsers, addSignaledUser, removeSignaledUser } from '../reduxActions/signaledUsersActions.js';
 import { addAnnouncement } from '../reduxActions/announcementsActions.js';
@@ -41,7 +41,7 @@ import {
     UPDATE_CALL_LIST,
     NEW_CALL,
     REMOVE_CALL,
-    // UPDATE_CALL,
+    UPDATE_CALL,
 
     NEW_ANN
 } from '../helpers/events.js';
@@ -108,9 +108,9 @@ class DashPage extends Component {
             });
 
             // Reducer and actions not implemented yet.
-            // socket.on(UPDATE_CALL, (callObj) => {
-            //     this.props.updateCall(callObj);
-            // });
+            socket.on(UPDATE_CALL, (callObj) => {
+                this.props.updateCall(callObj);
+            });
 
             socket.on(UPDATE_SUBJECT, (subjectStr) => {
                 this.props.setSubject(subjectStr);
@@ -361,6 +361,7 @@ const mapActionsToDispatch = (dispatch) => {
         setCalls,
         addCall,
         removeCall,
+        updateCall,
 
         setSubject,
 

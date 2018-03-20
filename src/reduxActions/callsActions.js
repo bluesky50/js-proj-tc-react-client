@@ -26,3 +26,12 @@ export const removeCall = (callId) => {
         }
     }
 }
+
+export const updateCall = (callObj) => {
+    if (callObj) {
+        return {
+            type: callsTypes.UPDATE_CALL,
+            payload: callObj
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
@@ -7,7 +8,7 @@ class Announcements extends Component {
 
     mapAnnouncements() {
         return this.props.announcements.map((a, index) => {
-            return <p style={textStyle} key={index}>{a}</p>;
+            return <p style={textStyle} key={index}>{a} [ {moment(new Date().getTime()).format('h:mm a')} ]</p>;
         });
     }
 

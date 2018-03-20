@@ -3,6 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import FlipMove from 'react-flip-move';
+
 // import MessagesList from './messagesList.js';
 
 // import { addMessage, setMessages } from '../../reduxActions/messagesActions.js';
@@ -205,7 +207,9 @@ class Chat extends React.Component {
                 <div style={{minWidth: "260px", width: "260px", height: "100%", display: "flex", flexDirection: "column", borderLeft: "2px solid rgb(47,52,63)"}}>
                     <div style={topicsLayout}>
                         <h4 style={headerStyle}>Topics</h4>
-                        {this.mapTopics()}
+                        <FlipMove maintainContainerHeight={true} easing="ease-in-out">
+                            {this.mapTopics()}
+                        </FlipMove>
                     </div>
                     <div style={usersLayout}>
                         <div style={headerContainer}>
@@ -215,7 +219,9 @@ class Chat extends React.Component {
                             </div>
                             <button onClick={this.handleSignalButton} style={{color: "rgb(38,43,51)", background: "gray", outline: "none", border: "none", marginLeft: "12px"}}>signal</button>
                         </div>
-                        {this.mapUsers()}
+                        <FlipMove maintainContainerHeight={true} easing="ease-in-out">
+                            {this.mapUsers()}
+                        </FlipMove>
                     </div>
                 </div>
             </div>

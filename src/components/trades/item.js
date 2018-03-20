@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
+import { UPDATE_CALL } from '../../helpers/events.js';
 
 class TradeCall extends React.Component {
 
@@ -13,6 +16,10 @@ class TradeCall extends React.Component {
 
         this.toggleShowNote = this.toggleShowNote.bind(this);
         this.handleToggleDetails = this.handleToggleDetails.bind(this);
+        this.handleOpen = this.handleOpen.bind(this);
+        this.handleClose = this.handleClose.bind(this);
+        this.handleArchive = this.handleArchive.bind(this);
+        this.handlePend = this.handlePend.bind(this);
     }
 
     handleToggleDetails() {
@@ -25,6 +32,34 @@ class TradeCall extends React.Component {
         this.setState({
             showNote: !this.state.showNote
         });
+    }
+
+    handleOpen() {
+        const { socket, trade, userInfo } = this.props;
+        if (userInfo.username === trade.creator) {
+            socket.emit(UPDATE_CALL, ({ _id: trade._id, status: 'open' }));
+        }
+    }
+
+    handleClose() {
+        const { socket, trade, userInfo } = this.props;
+        if (userInfo.username === trade.creator) {
+            socket.emit(UPDATE_CALL, ({ _id: trade._id, status: 'closed' }));
+        }
+    }
+
+    handleArchive() {
+        const { socket, trade, userInfo } = this.props;
+        if (userInfo.username === trade.creator) {
+            socket.emit(UPDATE_CALL, ({ _id: trade._id, status: 'archive' }));
+        }
+    }
+
+    handlePend() {
+        const { socket, trade, userInfo } = this.props;
+        if (userInfo.username === trade.creator) {
+            socket.emit(UPDATE_CALL, ({ _id: trade._id, status: 'pending' }));
+        }
     }
 
     tradeNote(note, color) {
@@ -60,9 +95,10 @@ class TradeCall extends React.Component {
                     <div style={headingLayout}>
                         <p style={{...titleStyle, color}}>{trade.ticker}</p>
                         <div stlye={buttonContainer}>
-                            <button style={{...buttonStyle, border: `1px solid ${color}`, color: color}}>O</button>
-                            <button style={{...buttonStyle, border: `1px solid ${color}`, color: color}}>C</button>
-                            <button style={{...buttonStyle, border: `1px solid ${color}`, color: color}}>A</button>
+                            <button style={{...buttonStyle, border: `1px solid ${color}`, color: color}} onClick={this.handlePend}>P</button>
+                            <button style={{...buttonStyle, border: `1px solid ${color}`, color: color}} onClick={this.handleOpen}>O</button>
+                            <button style={{...buttonStyle, border: `1px solid ${color}`, color: color}} onClick={this.handleClose}>C</button>
+                            <button style={{...buttonStyle, border: `1px solid ${color}`, color: color}} onClick={this.handleArchive}>A</button>
                             <button style={{...buttonStyle, border: `1px solid ${color}`, color: color}} onClick={this.toggleShowNote}>N</button>
                             <button style={{...buttonStyle, border: `1px solid ${color}`, color: color}} onClick={this.handleToggleDetails}>-</button>
                         </div>
@@ -155,4 +191,11 @@ const buttonContainer = {
     display: "flex"
 }
 
-export default TradeCall;
+const mapStateToProps = (state) => {
+    return {
+        socket: state.socket,
+        userInfo: state.userInfo
+    }
+}
+
+export default connect(mapStateToProps, null)(TradeCall);

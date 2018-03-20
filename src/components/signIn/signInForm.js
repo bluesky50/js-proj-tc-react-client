@@ -27,7 +27,7 @@ class SignInForm extends React.Component {
     isValidInput() {
         const { username, accessCode } = this.state;
 
-        if (username.trim() && accessCode.trim() && rms.includes(accessCode)) {
+        if (username.trim() && username.trim().length < 30 && accessCode.trim() && rms.includes(accessCode)) {
             for (let bn of blockedNames) {
                 if (username.toLowerCase().includes(bn)) {
                     return false;

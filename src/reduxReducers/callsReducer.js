@@ -10,6 +10,13 @@ const calls = (state = [], action) => {
             return state.filter((c) => {
                 return c._id !== action.payload._id;
             });
+        case callsTypes.UPDATE_CALL:
+            for (let [index, c] of state.entries()) {
+                if (c._id === action.payload._id) {
+                    state[index] = { ...state[index], status: action.payload.status };
+                }
+            }
+            return [...state]; 
         default:
             return state
     }
