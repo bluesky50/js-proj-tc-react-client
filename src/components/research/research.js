@@ -57,11 +57,11 @@ const headerStyle = {
     margin: "0 0"
 }
 
-// const linkStyle = {
-//     color: "rgb(60, 101, 142)",
-//     fontSize: "12px",
-//     marginBottom: "2px"
-// }
+const linkStyle = {
+    color: "rgb(60, 101, 142)",
+    fontSize: "12px",
+    marginBottom: "2px"
+}
 
 
 export default Research;
