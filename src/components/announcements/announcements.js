@@ -9,7 +9,7 @@ class Announcements extends Component {
     mapAnnouncements() {
         return this.props.announcements.map((a, index) => {
             return (
-                <div style={annContainer}>
+                <div key={index} style={annContainer}>
                     <p style={textStyle} key={index}>{a.text}</p>
                     <p style={timeTextStyle}>[ {moment(a.createdAt).format('h:mm a')} ]</p> 
                 </div>
