@@ -8,7 +8,12 @@ class Announcements extends Component {
 
     mapAnnouncements() {
         return this.props.announcements.map((a, index) => {
-            return <p style={textStyle} key={index}>{a} [ {moment(new Date().getTime()).format('h:mm a')} ]</p>;
+            return (
+                <div style={annContainer}>
+                    <p style={textStyle} key={index}>{a.text}</p>;
+                    <p style={timeTextStyle}>[ {moment(a.createdAt).format('h:mm a')} ]</p> 
+                </div>
+            );
         });
     }
 
@@ -32,6 +37,10 @@ const compLayout = {
     height: "200px"
 }
 
+const annContainer = {
+    display: "flex"
+}
+
 const headerStyle = {
     // color: "rgb(67,72,83)",
     color: "rgb(97,102,113)",
@@ -43,6 +52,12 @@ const textStyle = {
     color: "darkgray",
     fontSize: "14px",
     margin: "0 0 4px 0"
+}
+
+const timeTextStyle = {
+    color: "rgb(97,102,113)",
+    fontSize: "12px",
+    margin: "0 0 0 4px"
 }
 
 const mapStateToProps = (state) => {
