@@ -9,7 +9,7 @@ class Research extends React.Component {
                 </div>
                 <div style={rightLayout}>
                     <h4 style={headerStyle}>Resources</h4>
-                    <a style={linkStyle} target="_blank" href="https://blockchain.info/markets" rel="noopener noreferrer">blockchain.info/markets</a>
+                    {/* <a style={linkStyle} target="_blank" href="https://blockchain.info/markets" rel="noopener noreferrer">blockchain.info/markets</a>
                     <a style={linkStyle} target="_blank" href="https://www.blockchaincurated.com/" rel="noopener noreferrer">blockchaincurrated.com</a>
                     
                     <a style={linkStyle} target="_blank" href="https://cryptobriefing.com/" rel="noopener noreferrer">cryptobriefing.com</a>
@@ -19,7 +19,7 @@ class Research extends React.Component {
                     <a style={linkStyle} target="_blank" href="https://cointrendz.com/" rel="noopener noreferrer">cointrendz.com</a>
                     <a style={linkStyle} target="_blank" href="https://coinmarketcap.com/" rel="noopener noreferrer">coinmarketcap.com</a>
                     
-                    <a style={linkStyle} target="_blank" href="https://coinmeme.io/" rel="noopener noreferrer">coinmeme.io</a>
+                    <a style={linkStyle} target="_blank" href="https://coinmeme.io/" rel="noopener noreferrer">coinmeme.io</a> */}
                 </div>
             </div>
         );
