@@ -100,7 +100,7 @@ class AddCall extends React.Component {
         if (true) {
             return (
                 <div style={compLayout}>
-                    <h4 style={headingStyle}> Add Call </h4>
+                    <h3 style={headingStyle}> Add Call </h3>
                     <form>
                         <div style={fieldGroup}>
                             <label style={textStyle}>Status</label>
@@ -172,26 +172,30 @@ const inputStyle = {
     outline: "none",
     color: "rgb(38,43,51)",
     fontSize: "14px",
-    padding: "6px"
+    padding: "4px"
 }
 
 const headingStyle = {
-    fontSize: "14px",
+    // fontSize: "14px",
     fontWeight: "bold",
     color: "darkgray"
 }
 
 const buttonStyle = {
     background: "gray",
+    border: "none",
+    boxShadow: "0 0 4px rgb(30,30,30)",
     color: "rgb(37,42,53)",
     fontWeight: "bold",
-    padding: "10px"
+    padding: "6px",
 }
 
 const textStyle = {
-    margin: "0 0",
     color: "gray",
-    marginRight: "10px"
+    fontSize: "14px",
+    fontWeight: "bold",
+    margin: "0 0",
+    marginRight: "10px",
 }
 
 const mapStateToProps = (state) => {

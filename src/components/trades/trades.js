@@ -53,7 +53,8 @@ class Trades extends Component {
             //     note: 'Looking for 5% gain, but will close if changes direction.'
             // }],
             filter: '',
-            showAddCall: false
+            showAddCall: false,
+            search: ''
         }
     }
 
@@ -72,20 +73,43 @@ class Trades extends Component {
         // return this.state.tradeCalls;
         // console.log(this.props.calls);
 
+        let result = this.props.calls; 
+        if (this.state.search) {
+            result = this.props.calls.filter((tc) => {
+                if (tc.ticker.includes(this.state.search.toUpperCase())) {
+                    return true;
+                }
+
+                if (tc.creator.toLowerCase().includes(this.state.search.toLowerCase())) {
+                    return true;
+                }
+
+                if (tc.risk.toLowerCase().includes(this.state.search.toLowerCase())) {
+                    return true;
+                }
+
+                if (tc.term.toLowerCase().includes(this.state.search.toLowerCase())) {
+                    return true;
+                }
+
+                return false
+            });
+        }
        
         if (this.state.filter) {
 
             if (this.state.filter === 'me') {
-                return this.props.calls.filter((tc) => {
+                return result.filter((tc) => {
                     return tc.creator === this.props.userInfo.username;
                 });
             } else {
-                return this.props.calls.filter((tc) => {
+                return result.filter((tc) => {
                     return tc.status === this.state.filter;
                 });
             }
         }
-        return this.props.calls;
+
+        return result;
     }
 
     setFilterOpen() {
@@ -123,6 +147,12 @@ class Trades extends Component {
         });
     }
 
+    onChange(e) {
+        this.setState({
+            search: e.target.value
+        });
+    }
+
     conditionalRender() {
         if (this.state.showAddCall) {
             return (
@@ -139,6 +169,7 @@ class Trades extends Component {
                 <div style={headerLayout}>
                     <h4 style={headerStyle}>Calls</h4>
                     <div style={filterButtonContainer}>
+                        <input style={{ outline: "none" }} value={this.state.search} placeholder="Search" onChange={this.onChange.bind(this)}/>
                         <button style={filterButtonStyle} onClick={this.toggleShowAddCall.bind(this)}>N</button>
                         <button style={filterButtonStyle} onClick={this.setFilterOpen.bind(this)}>O</button>
                         <button style={filterButtonStyle} onClick={this.setFilterPending.bind(this)}>P</button>
