@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-// import logo from './logo.svg';
-// import './App.css';
 import Routes from './routes/index.js';
 
 class App extends Component {

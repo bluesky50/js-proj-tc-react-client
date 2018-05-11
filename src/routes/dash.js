@@ -69,8 +69,7 @@ class DashPage extends Component {
             const socket = io(DEV_SERVER_URI);
 
             socket.on('connect', () => {
-                // console.log('Client connected');
-                // console.log(this.props.userInfo);
+        
                 socket.emit(JOIN_CHANNEL, this.props.userInfo, (err) => {
                     if (err) {
                         console.log('Error joining room.');

@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import { BrowserRouter as Router } from 'react-router-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import PrivateRoute from '../hoc/privateRoute.js';
